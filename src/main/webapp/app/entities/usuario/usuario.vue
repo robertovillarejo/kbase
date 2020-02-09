@@ -29,6 +29,7 @@
                     <th v-on:click="changeOrder('primerApellido')"><span v-text="$t('kbaseApp.usuario.primerApellido')">Primer Apellido</span> <font-awesome-icon icon="sort"></font-awesome-icon></th>
                     <th v-on:click="changeOrder('segundoApellido')"><span v-text="$t('kbaseApp.usuario.segundoApellido')">Segundo Apellido</span> <font-awesome-icon icon="sort"></font-awesome-icon></th>
                     <th v-on:click="changeOrder('rfc')"><span v-text="$t('kbaseApp.usuario.rfc')">Rfc</span> <font-awesome-icon icon="sort"></font-awesome-icon></th>
+                    <th v-on:click="changeOrder('correo')"><span v-text="$t('kbaseApp.usuario.correo')">Correo</span> <font-awesome-icon icon="sort"></font-awesome-icon></th>
                     <th></th>
                 </tr>
                 </thead>
@@ -42,6 +43,7 @@
                     <td>{{usuario.primerApellido}}</td>
                     <td>{{usuario.segundoApellido}}</td>
                     <td>{{usuario.rfc}}</td>
+                    <td>{{usuario.correo}}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <router-link :to="{name: 'UsuarioView', params: {usuarioId: usuario.id}}" tag="button" class="btn btn-info btn-sm details">

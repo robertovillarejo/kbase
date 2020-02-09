@@ -29,6 +29,13 @@
                         <input type="text" class="form-control" name="rfc" id="usuario-rfc"
                             :class="{'valid': !$v.usuario.rfc.$invalid, 'invalid': $v.usuario.rfc.$invalid }" v-model="$v.usuario.rfc.$model" />
                     </div>
+                    <div class="form-group">
+                        <label class="form-control-label" v-text="$t('kbaseApp.usuario.correo')" for="usuario-correo">Correo</label>
+                        <input type="text" class="form-control" name="correo" id="usuario-correo"
+                            :class="{'valid': !$v.usuario.correo.$invalid, 'invalid': $v.usuario.correo.$invalid }" v-model="$v.usuario.correo.$model" />
+                        <div v-if="$v.usuario.correo.$anyDirty && $v.usuario.correo.$invalid">
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <button type="button" id="cancel-save" class="btn btn-secondary" v-on:click="previousState()">

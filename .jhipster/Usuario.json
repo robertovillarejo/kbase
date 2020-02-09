@@ -16,6 +16,14 @@
         {
             "fieldName": "rfc",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "correo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$"
         }
     ],
     "relationships": [],
@@ -28,5 +36,7 @@
     "fluentMethods": true,
     "readOnly": false,
     "clientRootFolder": "",
-    "applications": "*"
+    "applications": "*",
+    "searchEngine": false,
+    "databaseType": "mongodb"
 }

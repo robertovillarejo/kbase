@@ -2,13 +2,14 @@ package com.github.danimaniarqsoft.domain;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.Document;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 
 /**
  * A Usuario.
  */
-@Document(collection = "usuarios")
+@Document(collection = "usuario")
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -27,6 +28,10 @@ public class Usuario implements Serializable {
 
     @Field("rfc")
     private String rfc;
+
+    @Pattern(regexp = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")
+    @Field("correo")
+    private String correo;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public String getId() {
@@ -88,6 +93,19 @@ public class Usuario implements Serializable {
     public void setRfc(String rfc) {
         this.rfc = rfc;
     }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public Usuario correo(String correo) {
+        this.correo = correo;
+        return this;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -114,6 +132,7 @@ public class Usuario implements Serializable {
             ", primerApellido='" + getPrimerApellido() + "'" +
             ", segundoApellido='" + getSegundoApellido() + "'" +
             ", rfc='" + getRfc() + "'" +
+            ", correo='" + getCorreo() + "'" +
             "}";
     }
 }

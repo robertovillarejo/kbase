@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -52,7 +53,7 @@ public class UsuarioResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/usuarios")
-    public ResponseEntity<UsuarioDTO> createUsuario(@RequestBody UsuarioDTO usuarioDTO) throws URISyntaxException {
+    public ResponseEntity<UsuarioDTO> createUsuario(@Valid @RequestBody UsuarioDTO usuarioDTO) throws URISyntaxException {
         log.debug("REST request to save Usuario : {}", usuarioDTO);
         if (usuarioDTO.getId() != null) {
             throw new BadRequestAlertException("A new usuario cannot already have an ID", ENTITY_NAME, "idexists");
@@ -73,7 +74,7 @@ public class UsuarioResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/usuarios")
-    public ResponseEntity<UsuarioDTO> updateUsuario(@RequestBody UsuarioDTO usuarioDTO) throws URISyntaxException {
+    public ResponseEntity<UsuarioDTO> updateUsuario(@Valid @RequestBody UsuarioDTO usuarioDTO) throws URISyntaxException {
         log.debug("REST request to update Usuario : {}", usuarioDTO);
         if (usuarioDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

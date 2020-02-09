@@ -21,7 +21,7 @@ describe('Service Tests', () => {
     beforeEach(() => {
       service = new UsuarioService();
 
-      elemDefault = new Usuario('ID', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
+      elemDefault = new Usuario('ID', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -54,7 +54,8 @@ describe('Service Tests', () => {
             nombre: 'BBBBBB',
             primerApellido: 'BBBBBB',
             segundoApellido: 'BBBBBB',
-            rfc: 'BBBBBB'
+            rfc: 'BBBBBB',
+            correo: 'BBBBBB'
           },
           elemDefault
         );
@@ -72,7 +73,8 @@ describe('Service Tests', () => {
             nombre: 'BBBBBB',
             primerApellido: 'BBBBBB',
             segundoApellido: 'BBBBBB',
-            rfc: 'BBBBBB'
+            rfc: 'BBBBBB',
+            correo: 'BBBBBB'
           },
           elemDefault
         );

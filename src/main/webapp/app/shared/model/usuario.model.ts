@@ -4,6 +4,7 @@ export interface IUsuario {
   primerApellido?: string;
   segundoApellido?: string;
   rfc?: string;
+  correo?: string;
 }
 
 export class Usuario implements IUsuario {
@@ -12,6 +13,7 @@ export class Usuario implements IUsuario {
     public nombre?: string,
     public primerApellido?: string,
     public segundoApellido?: string,
-    public rfc?: string
+    public rfc?: string,
+    public correo?: string
   ) {}
 }

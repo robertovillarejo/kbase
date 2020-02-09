@@ -28,6 +28,12 @@
                     <dd>
                         <span>{{usuario.rfc}}</span>
                     </dd>
+                    <dt>
+                        <span v-text="$t('kbaseApp.usuario.correo')">Correo</span>
+                    </dt>
+                    <dd>
+                        <span>{{usuario.correo}}</span>
+                    </dd>
                 </dl>
                 <button type="submit"
                         v-on:click.prevent="previousState()"

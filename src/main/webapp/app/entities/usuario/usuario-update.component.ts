@@ -11,7 +11,8 @@ const validations: any = {
     nombre: {},
     primerApellido: {},
     segundoApellido: {},
-    rfc: {}
+    rfc: {},
+    correo: {}
   }
 };
 

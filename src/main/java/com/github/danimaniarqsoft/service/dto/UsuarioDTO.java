@@ -1,4 +1,5 @@
 package com.github.danimaniarqsoft.service.dto;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -16,6 +17,9 @@ public class UsuarioDTO implements Serializable {
     private String segundoApellido;
 
     private String rfc;
+
+    @Pattern(regexp = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")
+    private String correo;
 
 
     public String getId() {
@@ -58,6 +62,14 @@ public class UsuarioDTO implements Serializable {
         this.rfc = rfc;
     }
 
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -87,6 +99,7 @@ public class UsuarioDTO implements Serializable {
             ", primerApellido='" + getPrimerApellido() + "'" +
             ", segundoApellido='" + getSegundoApellido() + "'" +
             ", rfc='" + getRfc() + "'" +
+            ", correo='" + getCorreo() + "'" +
             "}";
     }
 }

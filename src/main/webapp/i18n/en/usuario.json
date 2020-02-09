@@ -19,7 +19,8 @@
       "nombre": "Nombre",
       "primerApellido": "Primer Apellido",
       "segundoApellido": "Segundo Apellido",
-      "rfc": "Rfc"
+      "rfc": "Rfc",
+      "correo": "Correo"
     }
   }
 }

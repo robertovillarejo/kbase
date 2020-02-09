@@ -47,6 +47,9 @@ public class UsuarioResourceIT {
     private static final String DEFAULT_RFC = "AAAAAAAAAA";
     private static final String UPDATED_RFC = "BBBBBBBBBB";
 
+    private static final String DEFAULT_CORREO = "AAAAAAAAAA";
+    private static final String UPDATED_CORREO = "BBBBBBBBBB";
+
     @Autowired
     private UsuarioRepository usuarioRepository;
 
@@ -95,7 +98,8 @@ public class UsuarioResourceIT {
             .nombre(DEFAULT_NOMBRE)
             .primerApellido(DEFAULT_PRIMER_APELLIDO)
             .segundoApellido(DEFAULT_SEGUNDO_APELLIDO)
-            .rfc(DEFAULT_RFC);
+            .rfc(DEFAULT_RFC)
+            .correo(DEFAULT_CORREO);
         return usuario;
     }
     /**
@@ -109,7 +113,8 @@ public class UsuarioResourceIT {
             .nombre(UPDATED_NOMBRE)
             .primerApellido(UPDATED_PRIMER_APELLIDO)
             .segundoApellido(UPDATED_SEGUNDO_APELLIDO)
-            .rfc(UPDATED_RFC);
+            .rfc(UPDATED_RFC)
+            .correo(UPDATED_CORREO);
         return usuario;
     }
 
@@ -138,6 +143,7 @@ public class UsuarioResourceIT {
         assertThat(testUsuario.getPrimerApellido()).isEqualTo(DEFAULT_PRIMER_APELLIDO);
         assertThat(testUsuario.getSegundoApellido()).isEqualTo(DEFAULT_SEGUNDO_APELLIDO);
         assertThat(testUsuario.getRfc()).isEqualTo(DEFAULT_RFC);
+        assertThat(testUsuario.getCorreo()).isEqualTo(DEFAULT_CORREO);
     }
 
     @Test
@@ -173,7 +179,8 @@ public class UsuarioResourceIT {
             .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE)))
             .andExpect(jsonPath("$.[*].primerApellido").value(hasItem(DEFAULT_PRIMER_APELLIDO)))
             .andExpect(jsonPath("$.[*].segundoApellido").value(hasItem(DEFAULT_SEGUNDO_APELLIDO)))
-            .andExpect(jsonPath("$.[*].rfc").value(hasItem(DEFAULT_RFC)));
+            .andExpect(jsonPath("$.[*].rfc").value(hasItem(DEFAULT_RFC)))
+            .andExpect(jsonPath("$.[*].correo").value(hasItem(DEFAULT_CORREO)));
     }
     
     @Test
@@ -189,7 +196,8 @@ public class UsuarioResourceIT {
             .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE))
             .andExpect(jsonPath("$.primerApellido").value(DEFAULT_PRIMER_APELLIDO))
             .andExpect(jsonPath("$.segundoApellido").value(DEFAULT_SEGUNDO_APELLIDO))
-            .andExpect(jsonPath("$.rfc").value(DEFAULT_RFC));
+            .andExpect(jsonPath("$.rfc").value(DEFAULT_RFC))
+            .andExpect(jsonPath("$.correo").value(DEFAULT_CORREO));
     }
 
     @Test
@@ -212,7 +220,8 @@ public class UsuarioResourceIT {
             .nombre(UPDATED_NOMBRE)
             .primerApellido(UPDATED_PRIMER_APELLIDO)
             .segundoApellido(UPDATED_SEGUNDO_APELLIDO)
-            .rfc(UPDATED_RFC);
+            .rfc(UPDATED_RFC)
+            .correo(UPDATED_CORREO);
         UsuarioDTO usuarioDTO = usuarioMapper.toDto(updatedUsuario);
 
         restUsuarioMockMvc.perform(put("/api/usuarios")
@@ -228,6 +237,7 @@ public class UsuarioResourceIT {
         assertThat(testUsuario.getPrimerApellido()).isEqualTo(UPDATED_PRIMER_APELLIDO);
         assertThat(testUsuario.getSegundoApellido()).isEqualTo(UPDATED_SEGUNDO_APELLIDO);
         assertThat(testUsuario.getRfc()).isEqualTo(UPDATED_RFC);
+        assertThat(testUsuario.getCorreo()).isEqualTo(UPDATED_CORREO);
     }
 
     @Test
@@ -263,5 +273,34 @@ public class UsuarioResourceIT {
         // Validate the database contains one less item
         List<Usuario> usuarioList = usuarioRepository.findAll();
         assertThat(usuarioList).hasSize(databaseSizeBeforeDelete - 1);
+    }
+
+    @Test
+    public void equalsVerifier() throws Exception {
+        TestUtil.equalsVerifier(Usuario.class);
+        Usuario usuario1 = new Usuario();
+        usuario1.setId("id1");
+        Usuario usuario2 = new Usuario();
+        usuario2.setId(usuario1.getId());
+        assertThat(usuario1).isEqualTo(usuario2);
+        usuario2.setId("id2");
+        assertThat(usuario1).isNotEqualTo(usuario2);
+        usuario1.setId(null);
+        assertThat(usuario1).isNotEqualTo(usuario2);
+    }
+
+    @Test
+    public void dtoEqualsVerifier() throws Exception {
+        TestUtil.equalsVerifier(UsuarioDTO.class);
+        UsuarioDTO usuarioDTO1 = new UsuarioDTO();
+        usuarioDTO1.setId("id1");
+        UsuarioDTO usuarioDTO2 = new UsuarioDTO();
+        assertThat(usuarioDTO1).isNotEqualTo(usuarioDTO2);
+        usuarioDTO2.setId(usuarioDTO1.getId());
+        assertThat(usuarioDTO1).isEqualTo(usuarioDTO2);
+        usuarioDTO2.setId("id2");
+        assertThat(usuarioDTO1).isNotEqualTo(usuarioDTO2);
+        usuarioDTO1.setId(null);
+        assertThat(usuarioDTO1).isNotEqualTo(usuarioDTO2);
     }
 }
