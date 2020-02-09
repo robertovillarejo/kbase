@@ -47,8 +47,8 @@ public class UsuarioResourceIT {
     private static final String DEFAULT_RFC = "AAAAAAAAAA";
     private static final String UPDATED_RFC = "BBBBBBBBBB";
 
-    private static final String DEFAULT_CORREO = "AAAAAAAAAA";
-    private static final String UPDATED_CORREO = "BBBBBBBBBB";
+    private static final String DEFAULT_CORREO = "a@a.a";
+    private static final String UPDATED_CORREO = "b@b.b";
 
     @Autowired
     private UsuarioRepository usuarioRepository;
