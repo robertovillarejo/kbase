@@ -12,6 +12,7 @@
         "link": "Link",
         "paso": "Paso",
         "usuario": "Usuario",
+        "notificacion": "Notificacion",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

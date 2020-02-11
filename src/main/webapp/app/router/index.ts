@@ -54,6 +54,12 @@ const Usuario = () => import('../entities/usuario/usuario.vue');
 const UsuarioUpdate = () => import('../entities/usuario/usuario-update.vue');
 // prettier-ignore
 const UsuarioDetails = () => import('../entities/usuario/usuario-details.vue');
+// prettier-ignore
+const Notificacion = () => import('../entities/notificacion/notificacion.vue');
+// prettier-ignore
+const NotificacionUpdate = () => import('../entities/notificacion/notificacion-update.vue');
+// prettier-ignore
+const NotificacionDetails = () => import('../entities/notificacion/notificacion-details.vue');
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
 Vue.use(Router);
@@ -294,6 +300,31 @@ export default new Router({
       path: '/entity/usuario/:usuarioId/view',
       name: 'UsuarioView',
       component: UsuarioDetails,
+      meta: { authorities: ['ROLE_USER'] }
+    }
+    ,
+    {
+      path: '/entity/notificacion',
+      name: 'Notificacion',
+      component: Notificacion,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/notificacion/new',
+      name: 'NotificacionCreate',
+      component: NotificacionUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/notificacion/:notificacionId/edit',
+      name: 'NotificacionEdit',
+      component: NotificacionUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/notificacion/:notificacionId/view',
+      name: 'NotificacionView',
+      component: NotificacionDetails,
       meta: { authorities: ['ROLE_USER'] }
     }
     // jhipster-needle-add-entity-to-router - JHipster will add entities to the router here

@@ -46,6 +46,10 @@
                         <font-awesome-icon icon="asterisk" />
                         <span v-text="$t('global.menu.entities.usuario')">Usuario</span>
                     </b-dropdown-item>
+                    <b-dropdown-item v-if="false" to="/entity/notificacion">
+                        <font-awesome-icon icon="asterisk" />
+                        <span v-text="$t('global.menu.entities.notificacion')">Notificacion</span>
+                    </b-dropdown-item>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </b-nav-item-dropdown>
                 <b-nav-item-dropdown

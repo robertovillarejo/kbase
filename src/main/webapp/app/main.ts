@@ -30,6 +30,7 @@ import InstruccionService from '@/entities/instruccion/instruccion.service';
 import LinkService from '@/entities/link/link.service';
 import PasoService from '@/entities/paso/paso.service';
 import UsuarioService from '@/entities/usuario/usuario.service';
+import NotificacionService from '@/entities/notificacion/notificacion.service';
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
 
 import draggable from 'vuedraggable';
@@ -95,6 +96,7 @@ new Vue({
     linkService: () => new LinkService(),
     pasoService: () => new PasoService(),
     usuarioService: () => new UsuarioService(),
+    notificacionService: () => new NotificacionService(),
     // jhipster-needle-add-entity-service-to-main - JHipster will import entities services here
     accountService: () => accountService
   },
